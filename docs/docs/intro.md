@@ -30,7 +30,7 @@ With this package we try to integrate as many Swift UI components as possible in
 
 
 ## Custom SwiftUI components?
-`rn-render-swift-ui` also allows you to create your own native Swift UI views. All you have to do is use our config plugin provided for you. The config plugin will then search for Swift UI views in a folder you specify in the `APP.json` and extract certain data. These created swift ui views will be available in your App after a prebuild. All you have to do then, is to pass the view key you have specified earlyer to the RNSwiftUI.CustomView. You could use this view then like all other RNSwiftUI Components which are predefined.
+`rn-render-swift-ui` also allows you to create your own native Swift UI views. All you have to do is use our config plugin provided for you. The config plugin will then search for Swift UI views in a folder you specify in the `APP.json` and extract certain data. These created swift ui views will be available in your App after a prebuild. All you have to do then, is to pass the view key you have specified earlier to the RNSwiftUI.CustomView. You could use this view then like all other RNSwiftUI Components which are predefined.
 
 
 ## Which Plattforms are Supported?
