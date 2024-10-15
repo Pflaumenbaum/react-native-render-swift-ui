@@ -2,7 +2,7 @@ const { withDangerousMod } = require("@expo/config-plugins");
 const { execSync } = require("child_process");
 const readline = require("readline");
 
-const withRNRenderSwiftUI = (config, { srcDir, noClean, dependencys }) => {
+const withRNRenderSwiftUI = (config, { srcDir, noClean, dependencys } = {}) => {
   return withDangerousMod(config, [
     "ios",
     (config) => {
