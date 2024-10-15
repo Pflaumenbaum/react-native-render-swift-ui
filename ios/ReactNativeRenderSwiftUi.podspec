@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
   s.license        = package['license']
   s.author         = package['author']
   s.homepage       = package['homepage']
-  s.platforms      = { :ios => '14.0'}
+  s.platforms      = { :ios => '14.0', :tvos => '14.0' }
   s.swift_version  = '5.4'
-  s.source         = { git: 'https://github.com/ALBUS12345/react-native-render-swift-ui' }
+  s.source         = { git: 'https://github.com/Pflaumenbaum/react-native-render-swift-ui.git', tag: package['version'] }
   s.static_framework = true
 
   s.dependency 'ExpoModulesCore'
