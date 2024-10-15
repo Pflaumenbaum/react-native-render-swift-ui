@@ -10,7 +10,7 @@ const withRNRenderSwiftUI = (config, { srcDir, noClean, dependencys }) => {
 
       try {
         execSync(
-          `cp ../ios/ReactNativeRenderSwiftUi.podspec.config ../ios/ReactNativeRenderSwiftUi.podspec`,
+          `cp ./node_modules/react-native-render-swift-ui/ios/ReactNativeRenderSwiftUi.podspec.config ./node_modules/react-native-render-swift-ui/ios/ReactNativeRenderSwiftUi.podspec`,
           { stdio: "inherit" }
         );
         dependencys &&
@@ -20,29 +20,29 @@ const withRNRenderSwiftUI = (config, { srcDir, noClean, dependencys }) => {
               dependency !== "ExpoModulesCore"
             )
               execSync(
-                `sed -i '' -e '/# Custom Dependencys/p; s/# Custom Dependencys/s.dependency "${dependency}"/' ../ios/ReactNativeRenderSwiftUi.podspec
+                `sed -i '' -e '/# Custom Dependencys/p; s/# Custom Dependencys/s.dependency "${dependency}"/' ./node_modules/react-native-render-swift-ui/ios/ReactNativeRenderSwiftUi.podspec
 `,
                 { stdio: "inherit" }
               );
           });
         execSync(
-          `find ../ios/CustomViews -type f ! -name 'index.swift' -exec rm -f {} +`,
+          `find ./node_modules/react-native-render-swift-ui/ios/CustomViews -type f ! -name 'index.swift' -exec rm -f {} +`,
           { stdio: "inherit" }
         );
         execSync(
-          `node ../custom.js ${srcDir !== null && srcDir} ${noClean && "--no-clean"} `,
+          `node ./node_modules/react-native-render-swift-ui/custom.js ${srcDir !== null && srcDir} ${noClean && "--no-clean"} `,
           { stdio: "inherit" }
         );
         console.log(
           "\u001b[1;32m \n✓ The following dependencies have been added to your project:  \n" +
             "  " +
-            JSON.stringify(dependencys) +
+            JSON.stringify(dependencys || []) +
             "\n"
         );
 
         readline
           .createInterface({ input: process.stdin, output: process.stdout })
-          .question(" Do you want to run pod install? (yes/no) ", (answer) => {
+          .question("", (answer) => {
             answer.trim().toLowerCase() === "yes"
               ? require("child_process").execSync("cd ios && pod install", {
                   stdio: "inherit",
@@ -53,7 +53,7 @@ const withRNRenderSwiftUI = (config, { srcDir, noClean, dependencys }) => {
         setTimeout(
           () =>
             console.log(
-              "\nDo you want to run pod install in the ios directory? (yes/no) "
+              "\nDo you want to run pod install in the ios directory? (yes/no)"
             ),
           1000
         );

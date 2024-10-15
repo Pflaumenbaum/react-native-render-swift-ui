@@ -169,7 +169,9 @@ const srcDir =
   customPath !== null && customPath !== "undefined"
     ? path.resolve(customPath)
     : path.resolve("./swiftui");
-const destDir = path.resolve("../ios/CustomViews");
+const destDir = args.includes("--example")
+  ? path.resolve("../ios/CustomViews")
+  : path.resolve("./node_modules/react-native-render-swift-ui/ios/CustomViews");
 
 if (args.includes("--no-clean")) {
   console.log(`\u001b[1;33m \n⚠ Cleaning  skipped \n`);

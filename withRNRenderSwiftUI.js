@@ -30,13 +30,13 @@ const withRNRenderSwiftUI = (config, { srcDir, noClean, dependencys }) => {
           { stdio: "inherit" }
         );
         execSync(
-          `node ../custom.js ${srcDir !== null && srcDir} ${noClean && "--no-clean"} `,
+          `node ../custom.js ${srcDir !== null && srcDir} ${noClean && "--no-clean"} --example`,
           { stdio: "inherit" }
         );
         console.log(
           "\u001b[1;32m \n✓ The following dependencies have been added to your project:  \n" +
             "  " +
-            JSON.stringify(dependencys) +
+            JSON.stringify(dependencys || []) +
             "\n"
         );
 
