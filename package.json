@@ -1,6 +1,6 @@
 {
   "name": "react-native-render-swift-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An expo module that gives you the opportunity to use SwiftUI inside every react native app",
   "main": "build/index.js",
   "types": "build/index.d.ts",
