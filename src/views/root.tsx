@@ -2,12 +2,12 @@ import * as React from "react";
 import serializeReactElement from "../serialize";
 import { SwiftUiEvent, SwiftUiJson } from "../ReactNativeRenderSwiftUi.types";
 import { useState } from "react";
-import { Button, View, ViewProps, Text, ViewStyle } from "react-native";
+import { ViewStyle } from "react-native";
 import { RNSwiftUIJsonView } from "../ReactNativeRenderSwiftUiView";
 
 export interface RootViewProps {
   children: React.ReactElement;
-  reactViews: React.ReactNode[];
+  reactViews?: React.ReactNode[];
   style?: ViewStyle;
   onSwiftUIEvent?: (event: { nativeEvent: SwiftUiEvent }) => void;
 
@@ -40,7 +40,6 @@ export const RootView = (props: RootViewProps) => {
   });
   const handleParseJSX = () => {
     const serializedTree = serializeReactElement(props.children);
-    console.log(serializedTree);
     setData(serializedTree as SwiftUiJson);
   };
 
