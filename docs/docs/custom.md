@@ -100,7 +100,7 @@ To add a custom native dependency to your project, update the `dependencies` pro
 
 ```js
 [
-  "../withCustomPrebuildScript",
+  "react-native-render-swift-ui",
   {
     [...],
     "dependencies": ["some-pod-name", ...]
